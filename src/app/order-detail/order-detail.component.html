@@ -1,0 +1,47 @@
+<div class="container card" >
+  <div class="card-body">
+    <div class="card-header"> order id : {{orderId}}</div>
+    <div class="card-title">created At : {{orderdetails.createdAt |date :'dd/MM/yyyy'}}</div>
+    <div class="card-title">order Status  : {{orderdetails.orderStatus}}</div>
+    <div class="card-body">
+      <div class="card-header"> customer id : {{orderdetails.customerId}}</div>
+      <div class="card-title">name : {{orderdetails.customer.name}}</div>
+      <div>email : {{orderdetails.customer.email}}</div>
+    </div>
+    <div class="card-body">
+      <table class="table" *ngIf="orderdetails">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>price</th>
+          <th>quantity</th>
+          <th>discount</th>
+          <th>productId</th>
+          <th>product name</th>
+          <th>product price</th>
+          <th>product quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of orderdetails.productItems">
+          <td>{{p.id}}</td>
+          <td>{{p.price}}</td>
+          <td>{{p.quantity}}</td>
+          <td>{{p.discount}}</td>
+          <td>{{p.product.id}}</td>
+          <td>{{p.product.name}}</td>
+          <td>{{p.product.price}}</td>
+          <td>{{p.product.quantity}}</td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
